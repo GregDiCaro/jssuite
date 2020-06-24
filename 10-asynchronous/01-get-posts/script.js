@@ -9,25 +9,32 @@
 // NOTE: don't focus on the existing code structure for now.
 // You will have time to focus on it later.
 
+// (() => {
+    
+
+   
+
+//     document.getElementById("run").addEventListener("click", () => {
+        
+//         }
+
+// })();
+
 (() => {
-    const setupIntervalMessage = (label, delay) => {
-        let count = 0;
 
-        return setInterval(() => console.log(`${label}:`, ++count), delay);
-    };
+    const button = document.getElementById("run");
 
-    let intervals = [];
+    button.addEventListener("click",()=>{
 
-    document.getElementById("run").addEventListener("click", () => {
-        if (intervals.length) {
-            intervals = intervals.filter(clearInterval);
-            console.clear();
-        }
+        window.lib.getPosts((error ,articles)=>{
 
-        intervals.push(setupIntervalMessage("one", 1000));
-        intervals.push(setupIntervalMessage("two", 5000));
-        intervals.push(setupIntervalMessage("three",10000));
-        intervals.push(setupIntervalMessage("four", 5000));
-        intervals.push(setupIntervalMessage("five", 10000));
+            console.log(articles);
+            
+        }) 
     });
+    
+
+
+
+
 })();

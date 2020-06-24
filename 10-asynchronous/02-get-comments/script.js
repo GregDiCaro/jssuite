@@ -13,9 +13,16 @@
     function callbackTest(error, articlesArr){
         if(error === null){
             console.table(articlesArr);
-        } else {
-            console.log("yeappp");
-        }
+            articlesArr.forEach(element => {
+                window.lib.getComments(element.id,(error,data)=>{
+
+                    console.log(error);
+                    console.table(data);
+                    
+                    
+                })
+            });
+        } 
     }
     document.getElementById("run").addEventListener("click",() => {
 
